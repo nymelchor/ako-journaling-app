@@ -27,3 +27,7 @@ Contributions are welcome! Here's how you can help:
 5. Push changes: `git push -u origin HEAD`
 
     *- NOTE: pushes **current** branch and sets the remote branch as upstream*
+
+## License
+
+This project is licensed under the Apache License 2.0. See the [License](./LICENSE). file for more details
