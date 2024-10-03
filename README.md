@@ -16,3 +16,14 @@
 - [ ] **Cloud Backup and Export Options**: Sign in using Google Drive, Dropbox or other cloud-based storage solutions
 - [ ] **Voice Dictation**: Hands-free journaling powered by voice
 - [ ] **Multi-Language**: Support a wider user base
+
+## Contributing
+
+Contributions are welcome! Here's how you can help:
+1. Fork the repo
+2. Create a new branch: `git checkout -b feature-branch-name`
+3. Make your changes
+4. Commit your changes: `git commit -m "Add some feature"`
+5. Push changes: `git push -u origin HEAD`
+
+    *- NOTE: pushes **current** branch and sets the remote branch as upstream*
