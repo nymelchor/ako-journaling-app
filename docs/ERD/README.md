@@ -15,3 +15,18 @@ While this design effectively addresses the core requirements of the journaling 
 | User-defined tags for entries                                | Costly queries on tag and mood usage trends                 |
 | Supports mood tracking for entries                           | Inadequate options for multi-mood entries or intensity      |
 | Suitable for basic journaling needs                          | Lacks version control for entries                           |
+
+---
+
+![Second Pass ERD](Akó-ERD-v0.2.png "Second Pass ERD")
+
+The transition from the **initial attempt** to the **second design** reflects incremental adjustments, focusing on improved functionality and user experience. One of the major changes is the shift from costly queries on usage trends to pre-aggregated tables. The introduction of `tag_usage_stats` and `mood_usage_stats` provides valuable insights into journaling habits without the high query cost of recomputing data from scratch. Mood tracking has also been improved with the addition of an `intensity` field, allowing for a nuanced representation of emotional states. The incorporation of soft deletes via the `deleted_at` field in the `journal_entries` table allows users to recover entries that would have been a permanent loss with the previous design. Furthermore, the introduction of a composite primary key for the `entry_tags` table ensures the uniqueness of each entry-tag relationship, preventing data duplication. The second design now supports various user account types—free, premium, and lifetime—in the `users` table, opening up possibilities for tiered features and monetization strategies. The evolution from the initial attempt to the second design showcases a thoughtful response to user needs, resulting in a more robust, user-friendly, and scalable journaling app.
+
+| **Pros**                                                   | **Cons**                                                    |
+|------------------------------------------------------------|-------------------------------------------------------------|
+| Custom named journals                                      | Absence of a role-based access control for shared journals  |
+| Users can create multiple journals                         | Complex join queries, possible bottlenecks at scale         |
+| User-defined tags for entries                              | Lacks version control for entries                           |
+| Granular mood tracking for entries                         | Increased overall storage requirements                      |
+| Easier analytical insights                                 | Potential redundant data in related `usage_stats`           |               
+| Soft delete functionality                                  | Possible over-engineering, before significant returns       |
